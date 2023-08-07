@@ -1,6 +1,9 @@
+import Navbar from "./components/Navbar";
 import ListRender from "./components/ListRender";
 import PuppyRender from "./components/PuppyRender";
+import PuppyForm from "./components/PuppyForm";
 import { useEffect, useState } from "react";
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
   const [players, setPlayers] = useState([]);
@@ -19,7 +22,12 @@ const App = () => {
 
   return (
     <>
-      {id ? <PuppyRender id={id} setId={setId}/> : <ListRender players={players} setId={setId} />}
+      <Navbar />
+      <h6>*page must be refreshed to allow delete / add to work (dont know how to fix this issue)</h6>
+      <Routes>
+        <Route path="/" element={id ? <PuppyRender id={id} setId={setId}/> : <ListRender players={players} setId={setId} />} />
+        <Route path="/PuppyForm" element={<PuppyForm />} />
+      </Routes>
     </>
   );
 };

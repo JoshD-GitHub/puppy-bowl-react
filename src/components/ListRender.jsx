@@ -11,13 +11,13 @@ const ListRender = ({ players, setId }) => {
 	const playersFilter = () => {
 		const setFilter = players.filter(
 			(item) => item.name.toLowerCase().includes(userInput.toLowerCase())
-		)
+		);
 
 		if (setFilter.length > 0) {
 			setId(setFilter[0].id);
 		} else {
 			alert('No Dogs Found...');
-		};
+		}
 	};
 	
 	return (
@@ -25,7 +25,7 @@ const ListRender = ({ players, setId }) => {
 			<div>
 				<input
 					type="text"
-					placeholder="Search Dogs..."
+					placeholder="Search"
 					value={userInput}
         	onChange={inputHandler}
 				/>
@@ -41,7 +41,6 @@ const ListRender = ({ players, setId }) => {
             <li>{player.status}</li>
           </ul>
 					<button onClick={()=> setId(player.id)} >Learn More</button>
-					<button>Delete</button>
         </div>
       </>)}
     </>
