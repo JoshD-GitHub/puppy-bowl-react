@@ -16,8 +16,8 @@ const PuppyRender = ({ id, setId }) => {
 	return (
     <>
       
-        <div id={player.id}>
-          <h1 key={player.id}>{player.name}</h1>
+        <div id={player.name}>
+          <h1 key={player.name}>{player.name}</h1>
           <img alt={player.name} src={player.imageUrl} />
           <ul>
             <li>{player.breed}</li>
