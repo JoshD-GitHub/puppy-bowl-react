@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ListRender = ({ players, setId }) => {
 	const [userInput, setUserInput] = useState('');
@@ -19,8 +19,7 @@ const ListRender = ({ players, setId }) => {
 			alert('No Dogs Found...');
 		};
 	};
-
-	// console.log(playersFilter[0].id)
+	
 	return (
     <>
 			<div>

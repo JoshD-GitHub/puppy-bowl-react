@@ -19,7 +19,6 @@ const App = () => {
 
   return (
     <>
-      
       {id ? <PuppyRender id={id} setId={setId}/> : <ListRender players={players} setId={setId} />}
     </>
   );
