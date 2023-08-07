@@ -1,12 +1,31 @@
+import { useEffect,useState } from "react";
 
-const PuppyRender = ({ players }) => {
-	return (players.map((player) => <>
-        <h1 key={player.id}>{player.name}</h1>
-        <img alt={player.name} src={player.imageUrl} />
-        <h3>{player.breed}</h3>
-        <h3>{player.status}</h3>
-        <button>Learn More</button>
-      </>)
+const PuppyRender = ({ id, setId }) => {
+  const [player, setPlayer] = useState([]);
+
+  useEffect(() => {
+    const fetchAPI = async() => {
+      const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2306-FSA-ET-WEB-FT-SF/players/${id}`);
+      const data = await response.json();
+      const puppies = data.data.player;
+      setPlayer(puppies);
+    };
+    fetchAPI();
+  }, []);
+
+	return (
+    <>
+      
+        <div id={player.id}>
+          <h1 key={player.id}>{player.name}</h1>
+          <img alt={player.name} src={player.imageUrl} />
+          <ul>
+            <li>{player.breed}</li>
+            <li>{player.status}</li>
+          </ul>
+          <button onClick={() => setId('')} >Go Back</button>
+        </div>
+    </>
   );
 };
 
